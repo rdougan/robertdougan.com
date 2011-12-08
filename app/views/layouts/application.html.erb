@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="Robert Dougan" />
+        <title>Robert Dougan</title>
+        
+        <meta name="keywords" content="robert, dougan, rdougan, sencha, touch, mobile, ios, cocoa, javascript, css, sass, scss, html, android, apple, design, theming, iphone" />
+        <meta name="description" content="Blog of Robert Dougan, Software Architect at Sencha." />
+        
+        <%= stylesheet_link_tag    "application" %>
+        <%= csrf_meta_tags %>
+        <%= auto_discovery_link_tag(:rss, "http://rwd.me") %>
+    </head>
+
+    <body>
+        
+        <header>
+            <h1><a href="/">robert dougan</a></h1>
+            <h2>Software Architect at <a href="http://sencha.com" target="_blank" />Sencha</a></h2>
+        </header>
+
+        <section>
+            <%= yield %>
+        </section>
+
+        <footer>
+            &copy; Robert Dougan 2011.
+        </footer>
+
+    </body>
+</html>
