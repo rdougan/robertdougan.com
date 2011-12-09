@@ -24,3 +24,6 @@ group :assets do
   gem 'compass', '~> 0.12.alpha'
   gem 'uglifier', '>= 1.0.3'
 end
+
+gem 'execjs'
+gem 'therubyracer'
