@@ -8,10 +8,6 @@ atom_feed :language => 'en-US' do |feed|
       entry.content markdown(post.body), :type => 'html'
       entry.updated(post.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")) 
       entry.published(post.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")) 
-
-      entry.author do |author|
-        author.name "Robert Dougan"
-      end
     end
   end
 end

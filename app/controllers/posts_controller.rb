@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.atom { render :layout => false }
-      # format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
+      format.rss { redirect_to feed_path(:format => :atom), :status => :moved_permanently }
     end
   end
 
