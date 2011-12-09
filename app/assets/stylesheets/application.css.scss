@@ -10,7 +10,6 @@ a:active,
 a:visited {
     color: #5f9ec3;
     text-decoration: none;
-    @include single-transition(color, .2s);
 
     &:hover {
         color: darken(#5f9ec3, 20);
