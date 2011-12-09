@@ -10,7 +10,8 @@
         
         <%= stylesheet_link_tag    "application" %>
         <%= csrf_meta_tags %>
-        <%= auto_discovery_link_tag(:rss, "http://rwd.me") %>
+        <%= auto_discovery_link_tag :atom, "/feed" %>
+        <%= auto_discovery_link_tag :rss, "/feed.rss" %>
     </head>
 
     <body>
