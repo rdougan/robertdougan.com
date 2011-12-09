@@ -27,9 +27,25 @@
             })();
         </script>
     </head>
-
+    
     <body>
+        
+        <!-- Notices/alerts -->
+        <% if notice %>
+        <div class="notice"><%= notice %></div>
+        <% elsif alert %>
+        <div class="alert"><%= alert %></div>
+        <% end %>
 
+        <% if user_signed_in? %>
+        <!-- Admin -->
+        <div class="admin-nav">
+            <%= link_to "Administration", admin_posts_url %>
+            <%= button_to "Sign out", destroy_user_session_url, :method => :delete %>
+        </div>
+        <% end %>
+        
+        <!-- Header -->
         <header>
             <h1><a href="/">robert dougan</a></h1>
             <h2>Software Architect at <a href="http://sencha.com" target="_blank" />Sencha</a></h2>

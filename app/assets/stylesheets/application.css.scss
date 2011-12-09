@@ -5,6 +5,7 @@ $helvetica-condensed-bold: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Bold C
 $post-margin: 20px;
 $post-background-color: #E7E7E7;
 
+//links
 a:link,
 a:active,
 a:visited {
@@ -14,6 +15,28 @@ a:visited {
     &:hover {
         color: darken(#5f9ec3, 20);
     }
+}
+
+//alerts + notices
+.alert,
+.notice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    background: #eee;
+    font-weight: bold;
+    width: auto;
+}
+
+//admin
+.admin-nav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: auto;
 }
 
 body {

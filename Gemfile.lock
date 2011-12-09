@@ -35,12 +35,17 @@ GEM
     asset_sync (0.2.3)
       activemodel
       fog
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
     chunky_png (1.2.5)
     compass (0.12.alpha.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
+    devise (1.5.2)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.1)
     erubis (2.7.0)
     excon (0.7.12)
     execjs (1.2.11)
@@ -71,6 +76,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.2.1)
     nokogiri (1.5.0)
+    orm_adapter (0.0.5)
     permalink_fu (1.0.0)
     pg (0.11.0)
     polyglot (0.3.3)
@@ -126,6 +132,8 @@ GEM
     uglifier (1.1.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    warden (1.1.0)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -134,6 +142,7 @@ DEPENDENCIES
   albino
   asset_sync
   compass (~> 0.12.alpha)
+  devise
   execjs
   json
   nokogiri

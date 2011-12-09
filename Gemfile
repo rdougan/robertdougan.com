@@ -28,3 +28,4 @@ end
 gem "asset_sync"
 gem 'execjs'
 gem 'therubyracer'
+gem 'devise'

@@ -1,0 +1,14 @@
+<section>
+<%= form_for [:admin, @post], :url => admin_post_url(@post) do |f| %>
+    <p>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.text_area :body %>
+    </p>
+
+    <p>
+        <%= f.submit %> <%= button_to "Delete", admin_post_path(@post), :method => :delete %>
+    </p>
+<% end %>
+</section>

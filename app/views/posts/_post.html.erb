@@ -1,6 +1,6 @@
 <section class="post">
     <header>
-        <h2><%= link_to post.name, {:controller => 'posts', :action => 'show', :permalink => post.permalink} %></h2>
+        <h2><%= link_to post.name, { :controller => 'posts', :action => 'show', :permalink => post.permalink } %></h2>
         <p><%= post.created_at.strftime("%d/%m/%Y") %></p>
     </header>
     
