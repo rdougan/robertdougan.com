@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="author" content="Robert Dougan" />
-        <title>Robert Dougan</title>
+        <title>Robert Dougan<%= " - #{@post.name}" if @post %></title>
         
         <meta name="keywords" content="robert, dougan, rdougan, sencha, touch, mobile, ios, cocoa, javascript, css, sass, scss, html, android, apple, design, theming, iphone" />
         <meta name="description" content="Blog of Robert Dougan, Software Architect at Sencha." />
@@ -13,6 +13,7 @@
         <%= auto_discovery_link_tag :atom, "/feed" %>
         <%= auto_discovery_link_tag :rss, "/feed.rss" %>
 
+        <!-- Google -->
         <script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-4800380-7']);
@@ -29,6 +30,17 @@
     </head>
     
     <body>
+        <!-- Facebook -->
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=318225874868991";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
         
         <!-- Notices/alerts -->
         <% if notice %>

@@ -106,6 +106,10 @@ section.post {
     min-height: 12px;
     text-shadow: 0 1px 0 white;
 
+    &.index {
+        margin-bottom: 20px;
+    }
+
     header {
         position: relative;
 
@@ -133,7 +137,7 @@ section.post {
             bottom: 0px;
             left: -110px;
             margin: 0;
-            line-height: 18px;
+            line-height: 20px;
 
             color: #aaa;
             font-size: 14px;
@@ -202,5 +206,21 @@ section.post {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+}
+
+//facebook
+.fb-like {
+    margin-bottom: 20px;
+}
+
+.footer {
+    position: relative;
+
+    > iframe {
+        position: absolute;
+        top: 3px;
+        right: -34px;
+        width: 70px;
     }
 }
