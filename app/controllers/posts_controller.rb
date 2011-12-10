@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all(:order => "created_at DESC")
+    @posts = Post.all(:conditions => {:published => true}, :order => "created_at DESC")
 
     respond_to do |format|
       format.html
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def feed
-    @posts = Post.all(:order => "created_at DESC", :limit => 20)
+    @posts = Post.all(:conditions => {:published => true}, :order => "created_at DESC", :limit => 20)
 
     respond_to do |format|
       format.atom { render :layout => false }

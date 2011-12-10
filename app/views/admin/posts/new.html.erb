@@ -1,5 +1,5 @@
 <section>
-<%= form_for @post do |f| %>
+<%= form_for [:admin, @post], :url => admin_posts_url(@post) do |f| %>
     <p>
         <%= f.text_field :name %>
     </p>

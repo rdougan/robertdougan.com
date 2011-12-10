@@ -45,10 +45,8 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
-    background: url(../images/background.png);
-
     > * {
-        width: 600px;
+        width: 700px;
         margin: 0 auto;
     }
 
@@ -112,12 +110,11 @@ section.post {
         position: relative;
 
         h2 {
-            margin: 0;
+            margin: 0 0 15px 0;
             font-family: $helvetica-condensed-bold;
             font-size: 28px;
             font-weight: bold;
-            line-height: 20px;
-            height: 36px;
+            line-height: 30px;
 
             a:link,
             a:active,
@@ -133,14 +130,20 @@ section.post {
         p {
             width: 100px;
             position: absolute;
-            top: 0px;
+            bottom: 0px;
             left: -110px;
+            margin: 0;
+            line-height: 18px;
 
             color: #aaa;
             font-size: 14px;
             font-weight: normal;
             text-align: right;
         }
+    }
+
+    h3 {
+        color: #666;
     }
 
     p,
@@ -162,6 +165,15 @@ section.post {
             font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
             font-weight: bold;
         }
+    }
+
+    p > img {
+        margin: 0 auto;
+        display:block;
+    }
+
+    p > br {
+        display: none;
     }
 
     ul {

@@ -1,3 +1,5 @@
+<%= link_to "new", new_admin_post_url %>
+
 <ul>
 <% @posts.each do |post| %>
     <li><%= link_to post.name, edit_admin_post_url(post) %></li>
