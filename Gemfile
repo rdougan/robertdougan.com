@@ -12,9 +12,8 @@ end
 
 gem 'json'
 
-gem 'redcarpet', '1.17.2'
-gem 'albino'
-gem 'nokogiri'
+gem 'redcarpet'
+gem 'pygments.rb'
 gem 'permalink_fu'
 
 # Gems used only for assets and not required

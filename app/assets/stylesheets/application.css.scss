@@ -1,9 +1,14 @@
 @import "compass";
+@import "compass/reset";
 
-$helvetica-condensed-bold: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Bold Condensed', Helvetica, Arial, serif;
-
-$post-margin: 20px;
 $post-background-color: #E7E7E7;
+
+//fonts
+@mixin helvetica-condensed {
+    font-family: 'HelveticaNeue-CondensedBold', 'Helvetica Neue Bold Condensed', Helvetica, Arial, serif;
+    font-stretch: condensed;
+    font-weight: bold;
+}
 
 //links
 a:link,
@@ -15,6 +20,32 @@ a:visited {
     &:hover {
         color: darken(#5f9ec3, 20);
     }
+}
+
+//headers
+h1, h2, h3, h4, h5 {
+    @include helvetica-condensed;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 30px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+//lists
+ul {
+    list-style-type: circle;
+}
+
+//code blocks
+code {
+    font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+    line-height: 24px;
 }
 
 //alerts + notices
@@ -45,19 +76,18 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 
-    > * {
+    > header,
+    > footer,
+    section.body {
         width: 700px;
         margin: 0 auto;
     }
 
     > header {
+        padding: 70px 0;
+
         h1 {
-            font-family: $helvetica-condensed-bold;
             font-size: 40px;
-            font-stretch: condensed;
-            font-weight: bold;
-            padding: 0;
-            margin: 0;
 
             a:link,
             a:active,
@@ -75,22 +105,7 @@ body {
             color: #333;
             font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
             font-weight: 300;
-            margin: 0;
         }
-
-        aside {
-            font-size: 0;
-
-            div {
-                display: inline-block;
-                width: 95px;
-                height: 30px;
-                background: #ccc;
-                margin-right: 5px;
-            }
-        }
-
-        padding: 70px 0;
     }
 
     > footer {
@@ -103,9 +118,8 @@ body {
 
 section.post {
     margin: 0 0 50px 0;
-    min-height: 12px;
-    text-shadow: 0 1px 0 white;
 
+    //home page
     &.index {
         margin-bottom: 20px;
     }
@@ -113,12 +127,12 @@ section.post {
     header {
         position: relative;
 
+        //header
         h2 {
+            padding: 0;
             margin: 0 0 15px 0;
-            font-family: $helvetica-condensed-bold;
-            font-size: 28px;
-            font-weight: bold;
-            line-height: 30px;
+            border: 0;
+            font-size: 30px;
 
             a:link,
             a:active,
@@ -131,6 +145,7 @@ section.post {
             }
         }
 
+        //timestamp
         p {
             width: 100px;
             position: absolute;
@@ -146,13 +161,9 @@ section.post {
         }
     }
 
-    h3 {
-        color: #666;
-    }
-
     p,
     ul {
-        margin: 0 0 $post-margin 0;
+        margin: 0 0 20px 0;
         font-size: 17px;
         line-height: 30px;
         color: #333;
@@ -196,7 +207,7 @@ section.post {
     }
 
     pre {
-        margin: 0 0 $post-margin 0;
+        margin: 0 0 20px 0;
         padding: 10px;
         background: #edf8ff;
         overflow: auto;
@@ -207,14 +218,20 @@ section.post {
             margin-bottom: 0;
         }
     }
+
+    //headers
+    h2, h3, h4, h5 {
+        padding-top: 20px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid #eee;
+    }
+
+    h3 {
+        color: #666;
+    }
 }
 
-//facebook
-.fb-like {
-    margin-bottom: 20px;
-}
-
-.footer {
+section footer {
     position: relative;
 
     > iframe {
@@ -223,4 +240,9 @@ section.post {
         right: -34px;
         width: 70px;
     }
+}
+
+//facebook
+.fb-like {
+    margin-bottom: 20px;
 }
