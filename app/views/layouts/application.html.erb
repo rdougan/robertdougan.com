@@ -11,7 +11,16 @@
 
         <%= stylesheet_link_tag "application" %>
         <%= csrf_meta_tags %>
+
+        <%= if @post %>
+        <meta property="og:title" content="<%= @post.name %>" />
+        <% else %>
+        <meta property="og:title" content="Blog" />
+        <% end %>
         <meta property="fb:admins" content="727937921" />
+        <meta property="og:type" content="blog" />
+        <meta property="og:site_name" content="Robert Dougan" />
+        <meta property="og:description" content="Software Architect at Sencha" />
 
         <!-- Google -->
         <script type="text/javascript">
