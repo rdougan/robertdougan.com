@@ -12,7 +12,7 @@
         <%= stylesheet_link_tag "application" %>
         <%= csrf_meta_tags %>
 
-        <%= if @post %>
+        <% if @post %>
         <meta property="og:title" content="<%= @post.name %>" />
         <% else %>
         <meta property="og:title" content="Blog" />
