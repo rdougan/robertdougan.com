@@ -5,11 +5,12 @@
 
     is_folder = File.directory?(file)
     if is_folder
-        display = file_name = file.match(/(\w+)$/)[0]
+        display = file.match(/(\w+)$/)[0]
+        file_name = "/sencha/#{display}"
     else
         file_name = file.match(/([a-zA-Z\-\.]+)$/)[0].gsub('.html', '')
         display = file_name.gsub('-', ' ')
-        file_name = @product + '/' + file_name
+        file_name = "/sencha/#{@product}/#{file_name}"
     end
     %>
     <section class="post index">
