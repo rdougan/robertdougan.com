@@ -1,0 +1,21 @@
+
+<% @stuff.each do |file| %>
+    <%
+    display = file
+
+    is_folder = File.directory?(file)
+    if is_folder
+        display = file_name = file.match(/(\w+)$/)[0]
+    else
+        file_name = file.match(/([a-zA-Z\-\.]+)$/)[0].gsub('.html', '')
+        display = file_name.gsub('-', ' ')
+        file_name = @product + '/' + file_name
+    end
+    %>
+    <section class="post index">
+        <header>
+            <h2><%= link_to display, file_name %></h2>
+        </header>
+    </section>
+<% end %>
+

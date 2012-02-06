@@ -1,12 +1,16 @@
 RobertdouganCom::Application.routes.draw do
-  devise_for :users
+    devise_for :users
 
-  namespace :admin do
+    namespace :admin do
     resources :posts
-  end
+    end
 
-  match 'posts/:permalink' => 'posts#show', :as => :post
-  match '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }
+    match 'posts/:permalink' => 'posts#show', :as => :post
+    match '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }
 
-  root :to => 'posts#index'
+    # sencha examples
+    match 'sencha' => 'sencha#index'
+    match 'sencha/:product' => 'sencha#index'
+
+    root :to => 'posts#index'
 end
