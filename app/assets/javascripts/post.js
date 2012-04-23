@@ -26,7 +26,6 @@ $(document).ready(function() {
 
         if (scrollTop > 100 && canShow) {
             list.fadeIn();
-            console.log('here');
         } else {
             list.fadeOut();
         }
