@@ -24,9 +24,9 @@ group :assets do
   gem 'compass', '~> 0.12.alpha'
   gem 'uglifier', '>= 1.0.3'
   gem 'jquery-rails'
+  gem "asset_sync"
 end
 
-gem "asset_sync"
 gem 'execjs'
 gem 'therubyracer'
 gem 'devise'
