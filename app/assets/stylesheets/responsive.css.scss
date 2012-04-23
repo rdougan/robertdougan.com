@@ -70,3 +70,10 @@
         }
     }
 }
+
+// hide contents list on smaller screens
+@media screen and (max-width: 1195px) {
+    aside.contents {
+        opacity: 0;
+    }
+}

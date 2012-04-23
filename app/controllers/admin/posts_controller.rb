@@ -1,5 +1,16 @@
 class Admin::PostsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate
+  before_filter :add_cls
+
+  def add_cls
+    @cls = "admin"
+  end
+
+  def authenticate
+    authenticate_or_request_with_http_basic "Admin" do |user_name, password|
+      user_name == "admin" && password == ENV['ADMIN_PASSWORD']
+    end
+  end
 
   def index
     @posts = Post.all(:order => "created_at DESC")

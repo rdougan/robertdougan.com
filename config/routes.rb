@@ -2,7 +2,7 @@ RobertdouganCom::Application.routes.draw do
     devise_for :users
 
     namespace :admin do
-    resources :posts
+        resources :posts
     end
 
     match 'posts/:permalink' => 'posts#show', :as => :post

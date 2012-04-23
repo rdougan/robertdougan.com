@@ -8,6 +8,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'puma'
 end
 
 gem 'json'
@@ -22,6 +23,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.1.5'
   gem 'compass', '~> 0.12.alpha'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-rails'
 end
 
 gem "asset_sync"
