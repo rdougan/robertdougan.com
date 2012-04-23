@@ -18,6 +18,11 @@ RobertdouganCom::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  config.assets.enabled = true
+
+  config.action_controller.asset_host = Proc.new do |source, request|
+    request.ssl? ? "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com" : "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
+
 
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
