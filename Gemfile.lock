@@ -1,12 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    puma (3.6.2)
     rack (2.0.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  puma
   rack
 
 BUNDLED WITH
