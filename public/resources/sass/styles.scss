@@ -317,6 +317,14 @@ body > .lower {
   background-repeat: no-repeat;
 }
 
+a.col-sm-3.logo {
+  transition: transform .2s;
+
+  &:hover {
+    transform: scale(0.9, 0.9);
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .col-sm-3.logo {
     height: 130px;
@@ -327,6 +335,11 @@ body > .lower {
 
 .dougan .col-sm-3 {
   background-image: inline-image('dougan.png');
+  background-size: 130px;
+}
+
+.seeyourprogress .col-sm-3 {
+  background-image: inline-image('progress.png');
   background-size: 130px;
 }
 
