@@ -1,0 +1,27 @@
+{
+  "name": "robertdougan.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdougan/robertdougan.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rdougan/robertdougan.com/issues"
+  },
+  "homepage": "https://github.com/rdougan/robertdougan.com#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {
+    "got": "^11.8.1",
+    "tape": "^5.1.0"
+  }
+}
