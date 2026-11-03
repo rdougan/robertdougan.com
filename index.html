@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+
+  Why hello there.
+
+  Back in 2009, this comment read: "welcome to my humble little space where
+  I have spent many hours sighing, smiling, laughing and crying."
+
+  There are two of us now, so: double the sighing, smiling, laughing and crying.
+
+  No framework, no build step. One HTML file, a little CSS, and far too
+  much time spent on how the letters fall in. If you're the kind of person
+  who reads the source, we should probably talk: hello@dougan.me
+
+  Robert & Sarah
+
+  P.S. Only kidding. I generated all of this with AI.
+
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dougan Creative Corp.</title>
+<meta name="description" content="Dougan Creative Corp. Product vision, user experience, and the engineering to ship it. British Columbia, Canada.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dougan Creative Corp.">
+<meta property="og:description" content="Product vision, user experience, and the engineering to ship it.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/inter.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  /* Logo: the real Helvetica Neue Condensed Bold (Mac/iOS), otherwise Archivo condensed */
+  @font-face { font-family: "Dougan Fallback"; src: url("assets/archivo.woff2") format("woff2");
+               font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+  @font-face { font-family: "Inter"; src: url("assets/inter.woff2") format("woff2");
+               font-weight: 400 500; font-style: normal; font-display: swap; }
+  :root { --text: "Inter", -apple-system, system-ui, sans-serif; }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; }
+  .logo { margin: 0; font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue Condensed Bold", "Helvetica Neue", "Dougan Fallback", sans-serif;
+          font-weight: 700; font-stretch: condensed; letter-spacing: -0.01em; line-height: .9; }
+  .avatar { border-radius: 50%; object-fit: cover; aspect-ratio: 1; flex: none; }
+  .avatar.placeholder { display: grid; place-items: center; }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  :root {
+    --pad: clamp(24px, 5vw, 64px);
+    --fg: #f2f2f2; --dim: #6f6f6f; --muted: #7d7d7d; --bg: #0b0b0b;
+    --ease-out: cubic-bezier(.16, 1, .3, 1);
+    --spring: cubic-bezier(.34, 1.56, .64, 1);
+  }
+  /* iOS (every iOS browser is WebKit; -webkit-touch-callout only exists there): pure black, no grain overlay */
+  @supports (-webkit-touch-callout: none) {
+    :root { --bg: #000; }
+    body::after { display: none; }
+  }
+  html { background: var(--bg); color-scheme: dark; }
+  ::selection { background: var(--fg); color: var(--bg); }
+
+  body { font-family: var(--text); background: var(--bg); color: var(--fg); min-height: 100vh; min-height: 100svh;
+         display: grid; grid-template-rows: auto 1fr auto; overflow-x: hidden; position: relative; }
+
+  /* ---------- Atmosphere: slow drifting glow + film grain ---------- */
+  body::before {
+    content: ""; position: fixed; inset: -20%; pointer-events: none; z-index: -1;
+    background: radial-gradient(40% 35% at 30% 55%, rgba(255,255,255,.055), transparent 70%);
+    animation: drift 24s ease-in-out infinite alternate, fade-in 2.4s .4s var(--ease-out) both;
+  }
+  body::after {
+    content: ""; position: fixed; inset: -50%; pointer-events: none; z-index: 10; opacity: .05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain 1s steps(6) infinite;
+  }
+  @keyframes drift { to { transform: translate(18%, -12%) scale(1.15); } }
+  @keyframes grain {
+    0% { transform: translate(0, 0); } 20% { transform: translate(-6%, 4%); } 40% { transform: translate(4%, -8%); }
+    60% { transform: translate(-3%, 7%); } 80% { transform: translate(7%, 2%); } 100% { transform: translate(0, 0); }
+  }
+
+  /* ---------- Shared entrance ---------- */
+  @keyframes rise { from { opacity: 0; transform: translateY(.45em); filter: blur(8px); } }
+  @keyframes fade-in { from { opacity: 0; } }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } }
+  .js:not(.ready) * , .js:not(.ready) body::before { animation-play-state: paused !important; }
+
+  /* ---------- Header ---------- */
+  header { display: flex; justify-content: space-between; align-items: center; padding: var(--pad); padding-bottom: 0; }
+  header .logo { font-size: 64px; display: flex; cursor: default; }
+  /* pad each letter's box so it contains the descender + blur (Safari clips filters to the box), then cancel it out */
+  .logo .l { padding: .1em .06em .3em; margin: -.1em -.06em -.3em; }
+  .logo .l { display: inline-block; animation: rise 1s var(--ease-out) both; animation-delay: calc(var(--i) * 70ms + 100ms); }
+  .logo .l > span { display: inline-block; }
+  .logo:hover .l > span { animation: hop .7s var(--spring) both; animation-delay: calc(var(--i) * 45ms); }
+  @keyframes hop { 40% { translate: 0 -.16em; } 100% { translate: 0 0; } }
+
+
+  /* ---------- Statement ---------- */
+  main { display: flex; align-items: center; padding: 10vh var(--pad); }
+  .statement { margin: 0; max-width: 15em; text-wrap: balance; font-size: clamp(32px, 4.6vw, 64px);
+               line-height: 1.08; letter-spacing: -0.025em; font-weight: 400; }
+  /* same descender/blur padding trick as the logo letters */
+  .statement .w { padding: .1em .08em .3em; margin: -.1em -.08em -.3em; }
+  .statement .w { display: inline-block; animation: rise 1.1s var(--ease-out) both;
+                  animation-delay: calc(var(--i) * 55ms + 550ms); }
+  /* the gray half: a one-time highlight sweep after it lands, then lights up word by word on hover */
+  .statement .dim .w { color: var(--dim); transition: color .5s ease; transition-delay: calc((var(--i) - 3) * 40ms);
+                       animation: rise 1.1s var(--ease-out) both, sweep 1.4s ease both;
+                       animation-delay: calc(var(--i) * 55ms + 550ms), calc(var(--i) * 70ms + 1500ms); }
+  @keyframes sweep { 0%, 100% { color: var(--dim); } 35% { color: var(--fg); } }
+  .statement:hover .dim .w { color: var(--fg); }
+
+  /* ---------- Footer ---------- */
+  /* Footer layout
+     wide:   people ............ email      (legal under email, right-aligned)
+     medium: people ............ email      (legal on its own row)
+     narrow: people / email / legal stacked */
+  footer { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "people . email" "people . legal";
+           align-items: end; column-gap: 32px; row-gap: 14px; padding: 0 var(--pad) var(--pad); }
+  .people { grid-area: people; }
+  .email { grid-area: email; justify-self: end; }
+  .legal { grid-area: legal; justify-self: end; text-align: right; margin: 0; font-size: 12px; color: #5c5c5c; animation: fade-in 1.2s 1.8s both; }
+  @media (max-width: 1340px) {
+    footer { grid-template-areas: "people . email" "legal legal legal"; row-gap: 32px; }
+    .email { align-self: center; }
+    .legal { justify-self: start; text-align: left; }
+  }
+  @media (max-width: 760px) {
+    footer { grid-template-columns: 1fr; grid-template-areas: "people" "email" "legal"; row-gap: 28px; }
+    .email { justify-self: start; }
+  }
+  .people { display: flex; gap: 40px; flex-wrap: wrap; }
+  .person { display: flex; gap: 14px; align-items: center; animation: fade-up .9s var(--ease-out) both;
+            animation-delay: calc(var(--i) * 120ms + 1300ms); }
+  .person .avatar { width: 48px; filter: grayscale(1) brightness(var(--b, .9)); transition: filter .5s ease, transform .5s var(--spring), box-shadow .5s ease; }
+  .avatar.placeholder { width: 48px; background: #1d1d1d; color: #6a6a6a; font: 500 18px var(--text); transition: background .4s, color .4s, transform .5s var(--spring); }
+  .person:hover .avatar { filter: none; transform: scale(1.12) rotate(-4deg); box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px #3a3a3a; }
+  .person:hover .avatar.placeholder { background: #2a2a2a; color: var(--fg); }
+  .person b { display: block; font-weight: 500; font-size: 15px; transition: translate .4s var(--ease-out); }
+  .person small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; transition: color .4s, translate .4s var(--ease-out) 40ms; }
+  .person:hover b, .person:hover small { translate: 3px 0; }
+  .person:hover small { color: #a5a5a5; }
+
+  .email { position: relative; display: inline-flex; align-items: center; gap: 0; font-size: 18px; text-decoration: none;
+           padding-bottom: 4px; animation: fade-up .9s 1.55s var(--ease-out) both;
+           background: linear-gradient(var(--fg), var(--fg)) left bottom / 0% 1px no-repeat,
+                       linear-gradient(#444, #444) left bottom / 100% 1px no-repeat;
+           transition: background-size .6s var(--ease-out), gap .4s var(--ease-out); }
+  .email .arrow { display: inline-block; width: 0; opacity: 0; overflow: hidden; translate: -6px 0;
+                  transition: width .4s var(--ease-out), opacity .3s, translate .4s var(--ease-out); }
+  .email:hover, .email:focus-visible { background-size: 100% 1px, 100% 1px; gap: 8px; outline: none; }
+  .email:hover .arrow, .email:focus-visible .arrow { width: 1em; opacity: 1; translate: 0 0; }
+
+  @media (max-width: 700px) { header .logo { font-size: 48px; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1 class="logo" aria-label="dougan"><span class="l" style="--i:0" aria-hidden="true"><span>d</span></span><span class="l" style="--i:1" aria-hidden="true"><span>o</span></span><span class="l" style="--i:2" aria-hidden="true"><span>u</span></span><span class="l" style="--i:3" aria-hidden="true"><span>g</span></span><span class="l" style="--i:4" aria-hidden="true"><span>a</span></span><span class="l" style="--i:5" aria-hidden="true"><span>n</span></span></h1>
+  </header>
+  <main>
+    <p class="statement"><span class="w" style="--i:0">Product</span> <span class="w" style="--i:1">vision,</span> <span class="w" style="--i:2">user</span> <span class="w" style="--i:3">experience,</span> <span class="dim"><span class="w" style="--i:4">and</span> <span class="w" style="--i:5">the</span> <span class="w" style="--i:6">engineering</span> <span class="w" style="--i:7">to</span> <span class="w" style="--i:8">ship</span> <span class="w" style="--i:9">it.</span></span></p>
+  </main>
+  <footer>
+    <div class="people">
+      <div class="person" style="--i:0"><img class="avatar" src="assets/sarah.jpg" alt="Sarah Dougan" style="--b:.72"><div><b>Sarah Dougan</b><small>Design vision &amp; user experience</small></div></div>
+      <div class="person" style="--i:1"><img class="avatar" src="assets/robert.jpg" alt="Robert Dougan"><div><b>Robert Dougan</b><small>Engineering, mobile &amp; AI</small></div></div>
+    </div>
+    <a class="email" href="mailto:hello@dougan.me">hello@dougan.me<span class="arrow" aria-hidden="true">→</span></a>
+    <p class="legal">© 2026 Dougan Creative Corp. · Made in British Columbia, by way of Ireland, London, the Bay Area and Amsterdam.</p>
+  </footer>
+  <script>
+    // Psst. You found the console.
+    console.log('%cdougan', 'font: 700 condensed 40px "HelveticaNeue-CondensedBold", "Helvetica Neue", sans-serif; color: #f2f2f2; background: #0b0b0b; padding: 4px 12px 8px;');
+    console.log('Poking around? So are we. Say hello: hello@dougan.me');
+
+    // Hold the entrance until fonts are in, so letters don't swap mid-animation (max 1.5s wait).
+    (function () {
+      var go = function () { document.documentElement.classList.add('ready'); };
+      if (document.fonts && document.fonts.ready) { document.fonts.ready.then(go); setTimeout(go, 1500); } else { go(); }
+    })();
+  </script>
+</body>
+</html>
